@@ -40,6 +40,10 @@ async function connectToMongoDB() {
 
 connectToMongoDB();
 
+app.get("/", async (req, res) => {
+  res.send("Hello World!");
+});
+
 app.get("/pcData", async (req, res) => {
   try {
     const pcData = await db.collection("pcData").find({}).toArray();
